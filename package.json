@@ -1,6 +1,6 @@
 {
   "name": "echo-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A cross-platform CLI for outputting text to the command line. Supports escape sequences",
   "main": "dist/index.js",
   "bin": {
