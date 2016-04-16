@@ -14,13 +14,15 @@ Why? Because Windows’ CMD doesn’t support escape sequences, and even [a new 
 npm install --global echo-cli
 ```
 
-## Usage 
+## Usage
 
 ```sh
 $ echo-cli Hello, world!
 Hello, world!
 
-$ echo-cli Hello,\nworld!
+$ # When passing an escape sequence, wrap the passed text into quotes
+$ # to prevent Bash from interpreting them on its own
+$ echo-cli "Hello,\nworld!"
 Hello,
 world!
 

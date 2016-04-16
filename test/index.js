@@ -31,7 +31,7 @@ test.cb('nothing is passed', t => {
 });
 
 test.cb('an escape sequence is passed', t => {
-    exec(`node ${echoCli} Hello,\\nWorld`, (error, stdout, stderr) => {
+    exec(`node ${echoCli} "Hello,\\nWorld"`, (error, stdout, stderr) => {
         t.falsy(error);
         t.is(stdout, 'Hello,\nWorld\n');
         t.is(stderr, '');
