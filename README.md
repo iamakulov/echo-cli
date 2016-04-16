@@ -31,7 +31,7 @@ When passing an escape sequence, wrap the passed text into quotes to prevent Bas
 {
     "scripts": {
         "build": "echo-cli Building the project... && babel src -d dist",
-        "test": "echo-cli 'Running the tests...\nThis usually takes a couple of minutes.' && ava",
+        "test": "echo-cli 'Running the tests...\\nThis usually takes a couple of minutes.' && ava",
     }
 }
 
@@ -39,7 +39,7 @@ When passing an escape sequence, wrap the passed text into quotes to prevent Bas
 {
     plugins: [
         new WebpackShellPlugin({
-            onBuildEnd: ['copyfiles dist ../archive/dist && echo-cli "\nCopied the build results"']
+            onBuildEnd: ['copyfiles dist ../archive/dist && echo-cli "\\nCopied the build results"']
         })
     ]
 }
