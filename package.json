@@ -11,8 +11,8 @@
     "pretest": "npm run build",
     "test": "ava test/index.js",
     "prepublish": "npm run test",
-    "coverage": "nyc --reporter=text-lcov npm test",
-    "precoverage-coveralls": "nyc npm test",
+    "coverage": "nyc npm test",
+    "precoverage-coveralls": "npm run coverage",
     "coverage-coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
