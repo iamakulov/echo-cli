@@ -6,7 +6,7 @@
 
 Why? Because Windows’ CMD doesn’t support escape sequences, and even [a new line is printed differently from Bash](http://stackoverflow.com/a/132804/1192426).
 
-`echo-cli` supports all JavaScript escape sequences described [on the according MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Using_special_characters_in_strings) including ES2015 Unicode code point escapes (`\u{XXXXX}`). Feel free to open an issue if you need Bash escape sequences too.
+`echo-cli` supports all JavaScript escape sequences described [on the according MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Using_special_characters_in_strings). Feel free to open an issue if you need Bash escape sequences too.
 
 ## Install
 
@@ -20,13 +20,13 @@ npm install --global echo-cli
 $ echo-cli Hello, world!
 Hello, world!
 
-$ # When passing an escape sequence, wrap the passed text into quotes
-$ # to prevent Bash from interpreting them on its own
+# When passing an escape sequence, wrap the passed text into quotes
+# to prevent Bash from interpreting them on its own
 $ echo-cli "Hello,\nworld!"
 Hello,
 world!
 
-$ echo-cli Hello,\\nworld!
+$ echo-cli "Hello,\\nworld!"
 Hello,\nworld!
 ```
 
