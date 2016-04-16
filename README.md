@@ -45,6 +45,14 @@ When passing an escape sequence, wrap the passed text into quotes to prevent Bas
 }
 ```
 
+```sh
+# Or in a shell
+$ echo-cli "Hello,\nworld!"
+Hello,
+world
+```
+
+
 ## License
 
 MIT © [Ivan Akulov](http://iamakulov.com)
