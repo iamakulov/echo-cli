@@ -2,19 +2,26 @@
   "name": "echo-cli",
   "version": "1.0.9",
   "description": "A cross-platform CLI for outputting text to the command line. Supports escape sequences",
-  "exports": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "exports": {
+    "import": "./dist/index.cjs",
+    "require": "./dist/index.mjs"
+  },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "bin": {
-    "echo-cli": "dist/index.js"
+    "echo-cli": "dist/index.mjs"
   },
   "files": [
     "dist"
   ],
   "type": "module",
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "npm run compile",
+    "compile:mjs": "babel src --out-dir dist --extensions '.ts' --out-file-extension '.mjs'",
+    "compile:cjs": "babel src --out-dir dist --extensions '.ts' --out-file-extension '.cjs' --config-file ./babel.config.compat.cjs",
+    "compile": "npm run compile:mjs && npm run compile:cjs && tsc --emitDeclarationOnly --declaration",
     "pretest": "npm run build",
     "test": "ava test/index.js",
     "prepare": "npm run test",
@@ -47,14 +54,11 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
     "ava": "^3.15.0",
+    "babel-plugin-add-import-extension": "^1.6.0",
     "coveralls": "^3.1.1",
     "nyc": "^15.1.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
   },
   "ava": {
     "babel": true

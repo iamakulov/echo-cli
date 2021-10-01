@@ -15,6 +15,6 @@ const cli = meow(`
       $ echo-cli Hello,\nworld!
       Hello,
       world!
-`);
+`, {importMeta: import.meta});
 
 console.log(unescapeJs(cli.input.join(' ')));
