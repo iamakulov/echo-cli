@@ -1,7 +1,7 @@
 import test from 'ava';
 import  { exec } from 'child_process';
 
-const echoCli = '../dist/index.js';
+const echoCli = './dist/index.mjs';
 
 test.cb('one word is passed', t => {
     exec(`node ${echoCli} Word`, (error, stdout, stderr) => {
