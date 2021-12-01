@@ -1,20 +1,29 @@
 #!/usr/bin/env node
-import meow from 'meow';
-import unescapeJs from 'unescape-js';
+import unescapeJs from "unescape-js";
 
-const cli = meow(`
-    Outputs the passed text to the command line. Supports escape sequences (\\n, \\t and others).
+const helpText = `
+Outputs the passed text to the command line. Supports escape sequences (\\n, \\t and others).
 
-    Usage
-      $ echo-cli <input>
- 
-    Examples
-      $ echo-cli Hello, world!
-      Hello, world!
-      
-      $ echo-cli Hello,\nworld!
-      Hello,
-      world!
-`);
+Usage
+  $ echo-cli <input>
 
-console.log(unescapeJs(cli.input.join(' ')));
+Examples
+  $ echo-cli Hello, world!
+  Hello, world!
+
+  $ echo-cli 'Hello,\\nworld!'
+  Hello,
+  world!
+
+  $ echo-cli '\\u{1F604}'
+  😄
+`;
+
+const processInput = process.argv.slice(2).join(" ");
+
+if (processInput === "--help") {
+  console.log(helpText);
+  process.exit(0);
+}
+
+console.log(unescapeJs(processInput));

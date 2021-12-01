@@ -32,7 +32,6 @@
   ],
   "homepage": "https://github.com/iamakulov/echo-cli#readme",
   "dependencies": {
-    "meow": "^3.7.0",
     "unescape-js": "^1.0.3"
   },
   "devDependencies": {
